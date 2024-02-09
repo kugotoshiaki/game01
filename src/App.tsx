@@ -44,7 +44,7 @@ const GameController: React.FC = () => {
 
   return (
     <div>
-      <h1>前後左右ゲーム司会者</h1>
+      <h1 className="headingTitle">前後左右ゲーム</h1>
       <div>
         <label htmlFor="interval">音が出る間隔（秒）:</label>
         <input
