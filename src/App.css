@@ -37,6 +37,35 @@
   }
 }
 
+.container {
+  margin: 0;
+  padding: 0 2rem;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
 .headingTitle {
+  margin: 1.5rem 0 3rem;
   text-align: center;
+  font-size: clamp(2rem, 0.118rem + 9.41vw, 6rem);
+}
+
+.mainContents {
+  display: grid;
+  row-gap: 1rem;
+  text-align: center;
+  label {
+    display: block;
+    font-size: clamp(1.5rem, 0.324rem + 5.88vw, 4rem);
+  }
+  input {
+    width: min(50%, 5rem);
+    margin-inline: auto;
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.btnContents {
+  margin: 3rem 0;
 }

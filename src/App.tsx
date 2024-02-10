@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "./App.css";
 
 const GameController: React.FC = () => {
   const [direction, setDirection] = useState<string | null>(null);
@@ -43,19 +44,20 @@ const GameController: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1 className="headingTitle">前後左右ゲーム</h1>
-      <div>
-        <label htmlFor="interval">音が出る間隔（秒）:</label>
+      <div className="mainContents" role="main">
+        <label htmlFor="interval">音が出る間隔（秒）</label>
         <input
           type="number"
           id="interval"
           min="1"
+          max="3"
           value={intervalSeconds}
           onChange={handleIntervalChange}
         />
       </div>
-      <div>
+      <div className="btnContents">
         <button onClick={startGame}>ゲームスタート</button>
         <button onClick={stopGame}>ゲームストップ</button>
       </div>
