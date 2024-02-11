@@ -3,7 +3,7 @@ import "./App.css";
 
 const GameController: React.FC = () => {
   const [direction, setDirection] = useState<string | null>(null);
-  const [intervalSeconds, setIntervalSeconds] = useState<number>(5);
+  const [intervalSeconds, setIntervalSeconds] = useState<number>(2);
   const [countdown, setCountdown] = useState<number | null>(null);
   const intervalRef = useRef<number | null>(null);
 
@@ -15,7 +15,7 @@ const GameController: React.FC = () => {
     }
 
     // カウントダウンの処理
-    setCountdown(5);
+    setCountdown(3);
     const countdownInterval = setInterval(() => {
       setCountdown((prevCount) => prevCount && prevCount - 1);
     }, 1000);
@@ -58,8 +58,16 @@ const GameController: React.FC = () => {
         />
       </div>
       <div className="btnContents">
-        <button onClick={startGame}>ゲームスタート</button>
-        <button onClick={stopGame}>ゲームストップ</button>
+        <button className="button buttonRound" onClick={startGame}>
+          <div className="buttonWrapper">
+            <span className="buttonText">ゲームスタート</span>
+          </div>
+        </button>
+        <button className="button buttonRound" onClick={stopGame}>
+          <div className="buttonWrapper stop">
+            <span className="buttonText">ゲームストップ</span>
+          </div>
+        </button>
       </div>
       <div>
         {countdown !== null && <h2>{countdown}</h2>}
