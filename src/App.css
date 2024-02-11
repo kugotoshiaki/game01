@@ -48,6 +48,10 @@
   margin: 1.5rem 0 3rem;
   text-align: center;
   font-size: clamp(2rem, 0.118rem + 9.41vw, 6rem);
+  background: linear-gradient(-45deg, #f45ade, #993ad1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .mainContents {
@@ -68,4 +72,96 @@
 
 .btnContents {
   margin: 3rem 0;
+  text-align: center;
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .button {
+    position: relative;
+    z-index: 1;
+    width: 240px;
+    height: 85px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(-45deg, #f45ade, #993ad1);
+  }
+  .buttonWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .buttonWrapper::before {
+    content: "START!";
+    display: grid;
+    place-content: center;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: -20px;
+    bottom: 0;
+    margin: auto 0;
+    border-style: solid;
+    border-width: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transform: rotate(45deg);
+    transition: all 0.5s ease-out;
+    z-index: 3;
+  }
+  .stop.buttonWrapper::before {
+    content: "STOP!";
+  }
+  .buttonRound .buttonWrapper::before {
+    color: #fff;
+    background: #ff006d;
+    border-color: #a10045;
+  }
+  .buttonWrapper::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    margin: auto 0;
+    transform: rotate(45deg);
+    transition: all 0.4s ease-out;
+  }
+  .buttonWrapper::after {
+    background: #ffd00e;
+  }
+  .buttonRound .buttonWrapper::after {
+    background: #ff006d;
+  }
+  .buttonRound .buttonWrapper::before,
+  .buttonRound .buttonWrapper::after {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+  }
+  .button:hover .buttonWrapper::after {
+    right: -300px;
+  }
+  .button:hover .buttonWrapper::before {
+    left: -300px;
+  }
+  .buttonText {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
 }
