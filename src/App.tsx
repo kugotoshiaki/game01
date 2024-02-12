@@ -14,6 +14,8 @@ const GameController: React.FC = () => {
       clearInterval(intervalRef.current);
     }
 
+    document.querySelector(".gameVision")?.classList.remove("none");
+
     // カウントダウンの処理
     setCountdown(3);
     const countdownInterval = setInterval(() => {
@@ -36,6 +38,8 @@ const GameController: React.FC = () => {
     }
     setCountdown(null);
     setDirection(null);
+
+    document.querySelector(".gameVision")?.classList.add("none");
   };
 
   const handleIntervalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,20 +62,33 @@ const GameController: React.FC = () => {
         />
       </div>
       <div className="btnContents">
-        <button className="button buttonRound" onClick={startGame}>
+        <button
+          id="btnStart"
+          className="button buttonRound"
+          onClick={startGame}
+        >
           <div className="buttonWrapper">
             <span className="buttonText">ゲームスタート</span>
           </div>
         </button>
-        <button className="button buttonRound" onClick={stopGame}>
-          <div className="buttonWrapper stop">
-            <span className="buttonText">ゲームストップ</span>
-          </div>
-        </button>
       </div>
-      <div>
-        {countdown !== null && <h2>{countdown}</h2>}
-        {direction && countdown === null && <h2>{direction}</h2>}
+      <div className="gameVision none">
+        <div className="gameContents">
+          <div className="gameArea">
+            {countdown !== null && <h2>{countdown}</h2>}
+            {direction && countdown === null && <h2>{direction}</h2>}
+          </div>
+
+          <button
+            id="btnStop"
+            className="button buttonRound btnStop"
+            onClick={stopGame}
+          >
+            <div className="buttonWrapper stop">
+              <span className="buttonText">ゲームストップ</span>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );
